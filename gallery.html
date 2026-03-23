@@ -40,12 +40,16 @@
     .img-card {
       display: flex;
       flex-direction: column;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      padding: 10px;
     }
 
     .img-card img {
       width: 100%;
       height: 220px;
-      object-fit: cover;
+      object-fit: contain;
+      background: #0f172a;
       border-radius: 10px;
       transition: transform 0.3s ease;
       cursor: pointer;
@@ -82,6 +86,7 @@
       max-width: 90%;
       max-height: 90%;
       border-radius: 10px;
+      background: #0f172a;
     }
 
     .back-link {
@@ -144,6 +149,7 @@
         const image = document.createElement("img");
         image.src = imageFolder + item.src;
         image.alt = item.caption;
+        image.loading = "lazy";
 
         const caption = document.createElement("div");
         caption.className = "img-caption";
