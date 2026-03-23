@@ -15,88 +15,156 @@
 
     h1 {
       text-align: center;
-      padding: 30px 0;
+      padding: 30px 0 10px;
       font-weight: 500;
+    }
+
+    h2 {
+      max-width: 1200px;
+      margin: 30px auto 10px;
+      padding: 0 20px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #e6edf3;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
       padding: 20px;
       max-width: 1200px;
       margin: auto;
     }
 
-    .gallery img {
+    .img-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .img-card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
       border-radius: 10px;
-      transition: 0.3s ease;
+      transition: transform 0.3s ease;
       cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
+    .img-card img:hover {
+      transform: scale(1.03);
     }
 
-    /* Lightbox */
+    .img-caption {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #b8c2cc;
+      text-align: center;
+      line-height: 1.4;
+    }
+
     .lightbox {
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.92);
       display: none;
       align-items: center;
       justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 9999;
     }
 
     .lightbox img {
       max-width: 90%;
       max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin: 0 auto 10px;
+      color: #9cc9ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .top-wrap {
+      text-align: center;
+      padding-top: 20px;
     }
   </style>
 </head>
 
 <body>
 
-<h1>Certificate & Work Gallery</h1>
+  <div class="top-wrap">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    <h1>Certificate & Work Gallery</h1>
+  </div>
 
-<div class="gallery" id="gallery"></div>
+  <h2>NSF-funded HPC Workshop</h2>
+  <div class="gallery" id="hpc-gallery"></div>
 
-<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
-  <img id="lightbox-img">
-</div>
+  <h2>Conference & Presentations</h2>
+  <div class="gallery" id="conf-gallery"></div>
 
-<script>
-  const imageFolder = "images/"; // your folder name
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" alt="Gallery preview">
+  </div>
 
-  const images = [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg"
-    
-  ];
+  <script>
+    const imageFolder = "images/";
 
-  const gallery = document.getElementById("gallery");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+    const hpcImages = [
+      { src: "Rmacc.jpg", caption: "RMACC HPC Workshop" },
+      { src: "Ramcc 2.jpg", caption: "NSF-funded HPC workshop session" },
+      { src: "rmacc3.jpg", caption: "HPC workshop group activity" }
+    ];
 
-  images.forEach(img => {
-    const image = document.createElement("img");
-    image.src = imageFolder + img;
+    const confImages = [
+      { src: "ICAECIS2023.jpg", caption: "ICAECIS 2023 Conference" },
+      { src: "ICAECIS2023--2.jpg", caption: "ICAECIS 2023 Presentation Session" },
+      { src: "ICAECIS2023--3.jpg", caption: "ICAECIS 2023 Event Photo" }
+    ];
 
-    image.onclick = () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = image.src;
-    };
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
 
-    gallery.appendChild(image);
-  });
-</script>
+    function loadImages(imageArray, containerId) {
+      const gallery = document.getElementById(containerId);
+
+      imageArray.forEach(item => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "img-card";
+
+        const image = document.createElement("img");
+        image.src = imageFolder + item.src;
+        image.alt = item.caption;
+
+        const caption = document.createElement("div");
+        caption.className = "img-caption";
+        caption.textContent = item.caption;
+
+        image.onclick = (e) => {
+          e.stopPropagation();
+          lightbox.style.display = "flex";
+          lightboxImg.src = image.src;
+          lightboxImg.alt = item.caption;
+        };
+
+        wrapper.appendChild(image);
+        wrapper.appendChild(caption);
+        gallery.appendChild(wrapper);
+      });
+    }
+
+    loadImages(hpcImages, "hpc-gallery");
+    loadImages(confImages, "conf-gallery");
+  </script>
 
 </body>
 </html>
