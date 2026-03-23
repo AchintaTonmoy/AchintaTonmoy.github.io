@@ -162,7 +162,18 @@ section:nth-of-type(even){background:var(--bg1);}
 .titem.hpc:hover .tdot{background:var(--teal);box-shadow:0 0 20px rgba(6,182,212,.7);}
 .thead{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.25rem;}
 .trole{font-size:.95rem;font-weight:600;color:var(--ink);}
-.tdate{font-family:var(--mono);font-size:.63rem;color:var(--ink4);white-space:nowrap;padding-top:.12rem;}
+.tdate{
+  font-family:var(--mono);
+  font-size:.9rem;
+  color:#fbbf24;
+  font-weight:700;
+  white-space:nowrap;
+  padding:.18rem .55rem;
+  border:1px solid rgba(245,158,11,.22);
+  border-radius:4px;
+  background:rgba(245,158,11,.08);
+  text-shadow:0 0 12px rgba(245,158,11,.45);
+}
 .torg{font-family:var(--code);font-size:.76rem;color:var(--teal);margin-bottom:.9rem;}
 .torg span{color:var(--ink3);}
 .tcard{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad-lg);padding:1.4rem 1.6rem;transition:border-color .25s,box-shadow .25s;}
@@ -184,13 +195,36 @@ section:nth-of-type(even){background:var(--bg1);}
 .thdesc{font-size:.82rem;color:var(--ink2);line-height:1.78;}
 .thdesc strong{color:var(--ink);font-weight:600;}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.25rem;}
-.pcard{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad-lg);padding:1.5rem;transition:all .25s;position:relative;overflow:hidden;}
+.pcard{
+  background:linear-gradient(180deg, rgba(245,158,11,.08), rgba(6,182,212,.04), var(--bg2));
+  border:1px solid rgba(245,158,11,.28);
+  border-radius:var(--rad-lg);
+  padding:1.5rem;
+  transition:all .25s;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 0 18px rgba(245,158,11,.08);
+}
 .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--amber),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s;}
-.pcard:hover{border-color:var(--line);transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.4),0 0 30px rgba(245,158,11,.04);}
+.pcard:hover{
+  border-color:var(--amber);
+  transform:translateY(-4px);
+  box-shadow:0 10px 35px rgba(0,0,0,.35), 0 0 24px rgba(245,158,11,.18);
+}
 .pcard:hover::before{transform:scaleX(1);}
-.pc-title{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;}
+.pc-title{
+  font-size:1.05rem;
+  font-weight:700;
+  color:#ffffff;
+  margin-bottom:.35rem;
+}
 .pc-course{font-family:var(--code);font-size:.62rem;color:var(--ink4);margin-bottom:.65rem;}
-.pc-desc{font-size:.79rem;color:var(--ink2);line-height:1.7;margin-bottom:.9rem;}
+.pc-desc{
+  font-size:.88rem;
+  color:#c7d2e6;
+  line-height:1.8;
+  margin-bottom:1rem;
+}
 .ptags{display:flex;flex-wrap:wrap;gap:.3rem;}
 .ptag{font-family:var(--code);font-size:.63rem;padding:.16rem .44rem;border-radius:3px;border:1px solid var(--line2);color:var(--ink3);background:var(--bg3);}
 
@@ -256,13 +290,42 @@ section:nth-of-type(even){background:var(--bg1);}
 .ctavail strong{color:var(--amber);font-weight:600;}
 .ctspon{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--code);font-size:.67rem;color:#f87171;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);padding:.28rem .75rem;border-radius:4px;}
 .ctlinks{display:flex;flex-direction:column;gap:.65rem;}
-.ctlink{display:flex;align-items:center;gap:.9rem;padding:.9rem 1.1rem;background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad);transition:all .25s;}
-.ctlink:hover{border-color:var(--amber);background:var(--bg3);box-shadow:0 4px 20px rgba(245,158,11,.06);transform:translateX(4px);}
+.ctlink{
+  display:flex;
+  align-items:center;
+  gap:.9rem;
+  padding:1rem 1.2rem;
+  background:linear-gradient(90deg, rgba(245,158,11,.06), rgba(6,182,212,.03), var(--bg2));
+  border:1px solid rgba(245,158,11,.22);
+  border-radius:var(--rad);
+  transition:all .25s;
+  box-shadow:0 0 14px rgba(245,158,11,.06);
+}
+.ctlink:hover{
+  border-color:var(--amber);
+  background:linear-gradient(90deg, rgba(245,158,11,.12), rgba(6,182,212,.05), var(--bg3));
+  box-shadow:0 6px 22px rgba(245,158,11,.16);
+  transform:translateX(6px);
+}
 .cticon{width:36px;height:36px;flex-shrink:0;background:var(--bg3);border:1px solid var(--line2);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:border-color .25s;}
 .ctlink:hover .cticon{border-color:var(--amber);}
 .cticon svg{width:15px;height:15px;}
-.ctlbl{font-family:var(--code);font-size:.58rem;color:var(--ink4);display:block;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.1rem;}
-.ctval{font-size:.82rem;color:var(--ink2);}
+.ctlbl{
+  font-family:var(--code);
+  font-size:.66rem;
+  color:var(--amber);
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:.2rem;
+  font-weight:600;
+}
+.ctval{
+  font-size:.96rem;
+  color:#e8eef8;
+  font-weight:500;
+}
+
 
 /* FOOTER */
 footer{border-top:1px solid var(--line);padding:2rem 0;position:relative;z-index:2;background:var(--bg0);}
@@ -550,7 +613,7 @@ footer{border-top:1px solid var(--line);padding:2rem 0;position:relative;z-index
       <div class="tdot"></div>
       <div class="thead">
         <div class="trole">Linux Server &amp; Storage Lab Setup</div>
-        <div class="tdate">2024 – present</div>
+        <div class="tdate">Jan 2026</div>
       </div>
       <div class="torg"><span>University of Wyoming — ECE Department (ERB Server Room)</span> &nbsp;·&nbsp; Laramie, WY</div>
       <div class="tcard">
