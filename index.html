@@ -1,631 +1,889 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Achinta Brata Roy Tonmoy</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <link rel="stylesheet" href="css/aos.css">
-
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-
-
-
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="color-scheme" content="dark"/>
+<title>Achinta Brata Roy Tonmoy — HPC Systems &amp; EE Research</title>
+<meta name="description" content="MS Electrical Engineering candidate at the University of Wyoming. HPC system administration, AI/ML research, distributed robotics."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-body{
-	overflow-x: hidden;
+:root {
+  --bg0:#060911;--bg1:#0b0f18;--bg2:#111620;--bg3:#171d2a;--bg4:#1e2535;
+  --line:#1f2840;--line2:#2a3550;
+  --ink:#e8eef8;--ink2:#8a96b0;--ink3:#4a5470;--ink4:#2e3650;
+  --amber:#f59e0b;--amber2:#fbbf24;--ag:rgba(245,158,11,.12);--aglow:rgba(245,158,11,.06);
+  --teal:#06b6d4;--teal2:#22d3ee;--tg:rgba(6,182,212,.10);
+  --green:#10b981;--gg:rgba(16,185,129,.10);
+  --red:#ef4444;
+  --mono:'Space Mono',monospace;
+  --sans:'IBM Plex Sans',sans-serif;
+  --code:'IBM Plex Mono',monospace;
+  --rad:4px;--rad-lg:8px;--nav-h:60px;
 }
-/*======================================
-//--//-->   ABOUT
-======================================*/
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;background:var(--bg0);cursor:none;}
+body{background:var(--bg0);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--bg0);}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px;}
+a{color:inherit;text-decoration:none;}
 
-.about-mf .box-shadow-full {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+/* CURSOR */
+#cdot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:var(--amber);transform:translate(-50%,-50%);transition:width .15s,height .15s;box-shadow:0 0 10px var(--amber),0 0 20px rgba(245,158,11,.4);}
+#cring{position:fixed;z-index:9998;pointer-events:none;width:32px;height:32px;border-radius:50%;border:1px solid rgba(245,158,11,.4);transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s;}
+body.hov #cdot{width:10px;height:10px;}
+body.hov #cring{width:50px;height:50px;border-color:rgba(245,158,11,.7);}
+
+/* CANVAS */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:500;display:flex;align-items:center;justify-content:center;background:rgba(6,9,17,.85);backdrop-filter:blur(24px) saturate(1.5);border-bottom:1px solid var(--line);transition:all .35s;}
+nav.scrolled{background:rgba(6,9,17,.96);border-color:var(--line2);box-shadow:0 2px 40px rgba(0,0,0,.6);}
+.nw{max-width:1280px;width:100%;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;}
+.nbrand{font-family:var(--mono);font-size:.72rem;color:var(--ink2);letter-spacing:.06em;}
+.nbrand .hl{color:var(--amber);}
+.nlinks{display:flex;gap:1.8rem;list-style:none;align-items:center;}
+.nlinks a{font-size:.7rem;font-family:var(--code);color:var(--ink3);letter-spacing:.04em;transition:color .2s;position:relative;}
+.nlinks a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--amber);transition:width .25s;}
+.nlinks a:hover,.nlinks a.active{color:var(--ink);}
+.nlinks a:hover::after,.nlinks a.active::after{width:100%;}
+.nlinks a.active{color:var(--amber);}
+.ncv{font-family:var(--mono);font-size:.63rem!important;padding:.3rem .85rem;border:1px solid var(--amber);border-radius:var(--rad);color:var(--amber)!important;background:var(--ag);transition:all .2s!important;letter-spacing:.06em;}
+.ncv:hover{background:var(--amber)!important;color:var(--bg0)!important;box-shadow:0 0 20px rgba(245,158,11,.3);}
+.ncv::after{display:none!important;}
+.nburg{display:none;flex-direction:column;gap:5px;cursor:none;padding:6px;}
+.nburg span{width:22px;height:1.5px;background:var(--ink2);display:block;transition:all .25s;}
+.mmenu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;z-index:499;background:rgba(6,9,17,.97);backdrop-filter:blur(24px);border-bottom:1px solid var(--line);flex-direction:column;}
+.mmenu.open{display:flex;}
+.mmenu a{padding:.9rem 2.5rem;font-family:var(--code);font-size:.85rem;color:var(--ink2);border-bottom:1px solid var(--line);transition:all .2s;}
+.mmenu a:hover{color:var(--amber);padding-left:3rem;}
+
+/* LAYOUT */
+.wrap{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 2.5rem;}
+section{position:relative;z-index:2;padding:6rem 0;}
+section:nth-of-type(even){background:var(--bg1);}
+
+/* SEC HEAD */
+.sh{display:flex;align-items:center;gap:1rem;margin-bottom:3.5rem;}
+.sh-num{font-family:var(--mono);font-size:.6rem;color:var(--amber);letter-spacing:.16em;background:var(--ag);border:1px solid rgba(245,158,11,.2);padding:.2rem .6rem;border-radius:3px;}
+.sh-title{font-family:var(--mono);font-size:.95rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.1em;}
+.sh-line{flex:1;height:1px;background:linear-gradient(to right,var(--line2),transparent);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);position:relative;z-index:2;overflow:hidden;}
+.hgrid{display:grid;grid-template-columns:1fr 310px;gap:5rem;align-items:center;padding:6rem 0;}
+.htag{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--code);font-size:.65rem;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2rem;}
+.hpulse{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:pulse 2.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.6)}}
+.hname{font-family:var(--mono);font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:700;line-height:1.05;letter-spacing:-.03em;color:var(--ink);margin-bottom:.5rem;}
+.hname .first{color:var(--ink2);font-weight:400;}
+.hname .last{color:var(--amber);}
+.hroles{font-family:var(--code);font-size:1rem;color:var(--ink2);margin-bottom:2rem;height:1.5rem;overflow:hidden;}
+.hroles .rw{display:flex;flex-direction:column;animation:rslide 8s ease-in-out infinite;}
+@keyframes rslide{0%,22%{transform:translateY(0)}28%,48%{transform:translateY(-1.5rem)}55%,75%{transform:translateY(-3rem)}82%,100%{transform:translateY(-4.5rem)}}
+.hroles span{height:1.5rem;line-height:1.5rem;display:block;}
+.hroles .r1{color:var(--amber);}.hroles .r2{color:var(--teal);}.hroles .r3{color:var(--green);}
+.hbio{font-size:.95rem;color:var(--ink2);max-width:560px;line-height:1.85;margin-bottom:2.2rem;}
+.hbio strong{color:var(--ink);font-weight:600;}
+.hpills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.2rem;}
+.pill{display:inline-flex;align-items:center;gap:.3rem;padding:.26rem .7rem;border-radius:20px;font-size:.67rem;font-family:var(--code);border:1px solid;}
+.pa{color:var(--amber);background:var(--ag);border-color:rgba(245,158,11,.25);}
+.pt{color:var(--teal);background:var(--tg);border-color:rgba(6,182,212,.25);}
+.pg{color:var(--green);background:var(--gg);border-color:rgba(16,185,129,.25);}
+.pw{color:#f87171;background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);}
+.hlinks{display:flex;flex-wrap:wrap;gap:1.2rem;align-items:center;}
+.hlinks a{font-family:var(--code);font-size:.73rem;color:var(--ink3);display:inline-flex;align-items:center;gap:.4rem;transition:color .2s;border-bottom:1px solid var(--line2);padding-bottom:2px;}
+.hlinks a:hover{color:var(--amber);border-color:var(--amber);}
+.hsep{color:var(--line2);}
+.hpanel{display:flex;flex-direction:column;gap:1rem;}
+.hcard{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad-lg);padding:1.25rem 1.4rem;transition:border-color .25s,box-shadow .25s;position:relative;overflow:hidden;}
+.hcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--aglow),transparent 60%);opacity:0;transition:opacity .3s;}
+.hcard:hover{border-color:var(--amber);box-shadow:0 0 30px rgba(245,158,11,.08);}
+.hcard:hover::before{opacity:1;}
+.hcard-lbl{font-family:var(--code);font-size:.58rem;color:var(--ink4);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.4rem;}
+.hcard-val{font-size:.82rem;color:var(--ink2);line-height:1.6;}
+.hcard-val strong{color:var(--ink);font-weight:600;}
+.hcard.gc{border-color:rgba(16,185,129,.2);}.hcard.gc .hcard-lbl{color:var(--green);}
+.hcard.ac{border-color:rgba(245,158,11,.2);}.hcard.ac .hcard-lbl{color:var(--amber);}
+
+/* ABOUT */
+.agrid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start;}
+.atxt p{font-size:.93rem;color:var(--ink2);line-height:1.9;margin-bottom:1.1rem;}
+.atxt p strong{color:var(--ink);font-weight:600;}
+.atxt p:last-child{margin-bottom:0;}
+.astats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:var(--rad-lg);overflow:hidden;}
+.astat{background:var(--bg2);padding:1.3rem 1.1rem;transition:background .2s;}
+.astat:hover{background:var(--bg3);}
+.an{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--amber);line-height:1;display:block;margin-bottom:.3rem;}
+.al{font-size:.68rem;color:var(--ink3);font-family:var(--code);}
+
+/* EDUCATION */
+.elist{display:flex;flex-direction:column;}
+.eitem{display:grid;grid-template-columns:1fr auto;gap:1.5rem;padding:1.75rem 0;border-bottom:1px solid var(--line);align-items:start;}
+.eitem:first-child{border-top:1px solid var(--line);}
+.edeg{font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;}
+.euni{font-family:var(--code);font-size:.75rem;color:var(--teal);margin-bottom:.35rem;}
+.egpa{font-family:var(--mono);font-size:.68rem;color:var(--amber);margin-bottom:.4rem;}
+.ecourses{font-size:.78rem;color:var(--ink3);line-height:1.65;}
+.edate{font-family:var(--mono);font-size:.65rem;color:var(--ink4);white-space:nowrap;padding-top:.15rem;}
+
+/* SKILLS */
+.snote{background:var(--bg2);border:1px solid var(--line2);border-left:3px solid var(--amber);border-radius:0 var(--rad-lg) var(--rad-lg) 0;padding:1rem 1.4rem;margin-bottom:2.5rem;font-size:.82rem;color:var(--ink2);line-height:1.75;}
+.snote strong{color:var(--amber);font-weight:600;}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;}
+.sgroup{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad-lg);padding:1.5rem;transition:border-color .25s;}
+.sgroup:hover{border-color:var(--line);}
+.sg-title{font-family:var(--mono);font-size:.65rem;color:var(--amber);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.2rem;padding-bottom:.7rem;border-bottom:1px solid var(--line2);}
+.sbrow{margin-bottom:.85rem;}
+.sbrow:last-child{margin-bottom:0;}
+.sbtop{display:flex;justify-content:space-between;margin-bottom:.3rem;}
+.sbname{font-size:.78rem;color:var(--ink2);}
+.sbname.hi{color:var(--ink);font-weight:500;}
+.sbname.hi::before{content:'★ ';color:var(--amber);font-size:.6rem;}
+.sblvl{font-family:var(--mono);font-size:.6rem;color:var(--ink4);}
+.sbtrack{height:3px;background:var(--line2);border-radius:2px;overflow:hidden;}
+.sbfill{height:100%;background:var(--amber);border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.16,1,.3,1);}
+.sbfill.t{background:var(--teal);}.sbfill.g{background:var(--green);}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem;}
+.chip{font-family:var(--code);font-size:.68rem;padding:.22rem .62rem;border-radius:3px;border:1px solid var(--line2);color:var(--ink3);background:var(--bg3);transition:all .15s;}
+.chip:hover{border-color:var(--amber);color:var(--amber);}
+.chip.hi{border-color:rgba(245,158,11,.3);color:var(--amber);background:var(--ag);}
+
+/* TIMELINE / EXPERIENCE */
+.tline{position:relative;padding-left:2.5rem;}
+.tline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--amber),var(--line2) 80%,transparent);}
+.titem{position:relative;padding-bottom:3rem;}
+.titem:last-child{padding-bottom:0;}
+.tdot{position:absolute;left:-2.5rem;top:.25rem;width:13px;height:13px;border-radius:50%;border:2px solid var(--amber);background:var(--bg0);box-shadow:0 0 12px rgba(245,158,11,.4);transition:all .25s;}
+.titem:hover .tdot{box-shadow:0 0 20px rgba(245,158,11,.7);background:var(--amber);}
+.titem.hpc .tdot{border-color:var(--teal);box-shadow:0 0 12px rgba(6,182,212,.4);}
+.titem.hpc:hover .tdot{background:var(--teal);box-shadow:0 0 20px rgba(6,182,212,.7);}
+.thead{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.25rem;}
+.trole{font-size:.95rem;font-weight:600;color:var(--ink);}
+.tdate{font-family:var(--mono);font-size:.63rem;color:var(--ink4);white-space:nowrap;padding-top:.12rem;}
+.torg{font-family:var(--code);font-size:.76rem;color:var(--teal);margin-bottom:.9rem;}
+.torg span{color:var(--ink3);}
+.tcard{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad-lg);padding:1.4rem 1.6rem;transition:border-color .25s,box-shadow .25s;}
+.titem.hpc .tcard{border-left:2px solid rgba(6,182,212,.4);background:linear-gradient(90deg,rgba(6,182,212,.02),transparent);}
+.tcard:hover{border-color:var(--line);box-shadow:0 4px 30px rgba(0,0,0,.3);}
+.tul{list-style:none;}
+.tul li{font-size:.83rem;color:var(--ink2);line-height:1.75;padding-left:1.1rem;position:relative;margin-bottom:.4rem;}
+.tul li:last-child{margin-bottom:0;}
+.tul li::before{content:'▸';position:absolute;left:0;color:var(--amber);font-size:.7rem;top:.15rem;}
+.tul li strong{color:var(--ink);font-weight:600;}
+.ttag{display:inline-block;font-family:var(--code);font-size:.6rem;padding:.1rem .38rem;border-radius:2px;margin-left:.35rem;background:var(--tg);color:var(--teal);border:1px solid rgba(6,182,212,.2);vertical-align:middle;}
+
+/* PROJECTS */
+.thcard{background:var(--bg2);border:1px solid var(--line2);border-left:3px solid var(--amber);border-radius:0 var(--rad-lg) var(--rad-lg) 0;padding:1.75rem 2rem;margin-bottom:2.5rem;position:relative;overflow:hidden;}
+.thcard::after{content:'ACTIVE RESEARCH';position:absolute;top:1rem;right:1.2rem;font-family:var(--mono);font-size:.55rem;color:var(--amber);letter-spacing:.14em;opacity:.6;}
+.thpulse{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--code);font-size:.62rem;color:var(--amber);margin-bottom:.8rem;text-transform:uppercase;letter-spacing:.1em;}
+.thpdot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 2s ease-in-out infinite;}
+.thtitle{font-size:.97rem;font-weight:600;color:var(--ink);line-height:1.55;margin-bottom:.6rem;}
+.thdesc{font-size:.82rem;color:var(--ink2);line-height:1.78;}
+.thdesc strong{color:var(--ink);font-weight:600;}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.25rem;}
+.pcard{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad-lg);padding:1.5rem;transition:all .25s;position:relative;overflow:hidden;}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--amber),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.pcard:hover{border-color:var(--line);transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,0,0,.4),0 0 30px rgba(245,158,11,.04);}
+.pcard:hover::before{transform:scaleX(1);}
+.pc-title{font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.2rem;}
+.pc-course{font-family:var(--code);font-size:.62rem;color:var(--ink4);margin-bottom:.65rem;}
+.pc-desc{font-size:.79rem;color:var(--ink2);line-height:1.7;margin-bottom:.9rem;}
+.ptags{display:flex;flex-wrap:wrap;gap:.3rem;}
+.ptag{font-family:var(--code);font-size:.63rem;padding:.16rem .44rem;border-radius:3px;border:1px solid var(--line2);color:var(--ink3);background:var(--bg3);}
+
+/* PUBLICATIONS */
+.plist{display:flex;flex-direction:column;}
+.pubitem{display:grid;grid-template-columns:42px 1fr;gap:1.25rem;padding:1.6rem 0;border-bottom:1px solid var(--line);}
+.pubitem:first-child{border-top:1px solid var(--line);}
+.pubnum{font-family:var(--mono);font-size:.7rem;color:var(--line2);padding-top:.1rem;text-align:right;}
+.pubbwrap{margin-bottom:.35rem;}
+.pubbadge{font-family:var(--code);font-size:.6rem;padding:.1rem .45rem;border-radius:3px;display:inline-block;margin-right:.4rem;}
+.pubbadge.acc{background:var(--gg);color:var(--green);border:1px solid rgba(16,185,129,.25);}
+.pubbadge.pub{background:var(--tg);color:var(--teal);border:1px solid rgba(6,182,212,.25);}
+.pubtitle{font-size:.88rem;font-weight:600;color:var(--ink);line-height:1.55;margin-bottom:.3rem;}
+.pubauth{font-size:.74rem;color:var(--ink3);margin-bottom:.25rem;}
+.pubauth strong{color:var(--ink2);font-weight:500;}
+.pubvenue{font-size:.77rem;color:var(--ink2);margin-bottom:.45rem;}
+.pubvenue em{color:var(--amber);font-style:normal;font-weight:500;}
+.pubdoi{font-family:var(--code);font-size:.67rem;color:var(--teal);border-bottom:1px solid transparent;transition:border-color .2s;}
+.pubdoi:hover{border-color:var(--teal);}
+
+/* TRAINING */
+.trgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
+.trcard{background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad-lg);padding:1.4rem 1.5rem;transition:border-color .25s;display:flex;flex-direction:column;gap:.4rem;}
+.trcard:hover{border-color:var(--amber);}
+.trlbl{font-family:var(--code);font-size:.6rem;color:var(--ink4);text-transform:uppercase;letter-spacing:.1em;}
+.trname{font-size:.88rem;font-weight:600;color:var(--ink);line-height:1.45;}
+.trsub{font-size:.77rem;color:var(--ink3);line-height:1.6;}
+.trlink{font-family:var(--code);font-size:.67rem;color:var(--amber);margin-top:.3rem;border-bottom:1px solid transparent;transition:border-color .2s;align-self:flex-start;}
+.trlink:hover{border-color:var(--amber);}
+.trplan{font-family:var(--mono);font-size:.63rem;color:var(--ink4);margin-top:.3rem;border:1px dashed var(--line2);border-radius:3px;padding:.2rem .55rem;align-self:flex-start;}
+.certph{margin-top:2.5rem;border:1.5px dashed var(--line2);border-radius:var(--rad-lg);padding:2rem;text-align:center;}
+.certph-txt{font-family:var(--code);font-size:.75rem;color:var(--ink4);line-height:1.7;}
+.certgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1px;background:var(--line);margin-top:1.5rem;border-radius:var(--rad);overflow:hidden;}
+.cslot{background:var(--bg2);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;cursor:none;transition:background .2s;}
+.cslot:hover{background:var(--bg3);}
+.cslot svg{width:24px;height:24px;stroke:var(--ink4);fill:none;stroke-width:1.5;}
+.cslot-lbl{font-family:var(--code);font-size:.62rem;color:var(--ink4);text-align:center;line-height:1.45;}
+
+/* AWARDS */
+.awgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:var(--rad-lg);overflow:hidden;}
+.awcard{background:var(--bg2);padding:1.5rem;transition:background .2s;}
+.awcard:hover{background:var(--bg3);}
+.awyear{font-family:var(--mono);font-size:.62rem;color:var(--amber);margin-bottom:.5rem;}
+.awname{font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:.35rem;line-height:1.4;}
+.awdesc{font-size:.77rem;color:var(--ink2);line-height:1.65;}
+.awlink{display:inline-flex;align-items:center;gap:.3rem;font-family:var(--code);font-size:.63rem;color:var(--ink3);margin-top:.6rem;border-bottom:1px solid transparent;transition:all .2s;}
+.awlink:hover{color:var(--amber);border-color:var(--amber);}
+
+/* ACTIVITIES */
+.acgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:var(--rad-lg);overflow:hidden;}
+.accard{background:var(--bg2);padding:1.4rem;transition:background .2s;}
+.accard:hover{background:var(--bg3);}
+.acrole{font-size:.87rem;font-weight:600;color:var(--ink);margin-bottom:.15rem;}
+.acorg{font-family:var(--code);font-size:.68rem;color:var(--teal);margin-bottom:.6rem;}
+.acdesc{font-size:.77rem;color:var(--ink2);line-height:1.65;}
+
+/* CONTACT */
+.ctgrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.cth{font-family:var(--mono);font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:.9rem;}
+.ctp{font-size:.92rem;color:var(--ink2);line-height:1.85;margin-bottom:1.1rem;}
+.ctp strong{color:var(--amber);font-weight:600;}
+.ctavail{background:var(--bg2);border:1px solid var(--line2);border-left:3px solid var(--amber);border-radius:0 var(--rad) var(--rad) 0;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.81rem;color:var(--ink2);line-height:1.65;}
+.ctavail strong{color:var(--amber);font-weight:600;}
+.ctspon{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--code);font-size:.67rem;color:#f87171;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);padding:.28rem .75rem;border-radius:4px;}
+.ctlinks{display:flex;flex-direction:column;gap:.65rem;}
+.ctlink{display:flex;align-items:center;gap:.9rem;padding:.9rem 1.1rem;background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad);transition:all .25s;}
+.ctlink:hover{border-color:var(--amber);background:var(--bg3);box-shadow:0 4px 20px rgba(245,158,11,.06);transform:translateX(4px);}
+.cticon{width:36px;height:36px;flex-shrink:0;background:var(--bg3);border:1px solid var(--line2);border-radius:6px;display:flex;align-items:center;justify-content:center;transition:border-color .25s;}
+.ctlink:hover .cticon{border-color:var(--amber);}
+.cticon svg{width:15px;height:15px;}
+.ctlbl{font-family:var(--code);font-size:.58rem;color:var(--ink4);display:block;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.1rem;}
+.ctval{font-size:.82rem;color:var(--ink2);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:2rem 0;position:relative;z-index:2;background:var(--bg0);}
+.ftin{max-width:1280px;margin:0 auto;padding:0 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.ftl{font-family:var(--mono);font-size:.65rem;color:var(--ink4);}
+.ftr{display:flex;gap:1.8rem;}
+.ftr a{font-family:var(--code);font-size:.7rem;color:var(--ink4);transition:color .2s;}
+.ftr a:hover{color:var(--amber);}
+
+/* SCROLL TOP */
+#stt{position:fixed;bottom:2rem;right:2rem;width:38px;height:38px;z-index:300;background:var(--bg2);border:1px solid var(--line2);border-radius:var(--rad);cursor:none;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all .3s;}
+#stt.vis{opacity:1;pointer-events:auto;}
+#stt:hover{border-color:var(--amber);box-shadow:0 0 20px rgba(245,158,11,.2);}
+#stt svg{width:14px;height:14px;stroke:var(--ink3);fill:none;stroke-width:2;stroke-linecap:round;}
+#stt:hover svg{stroke:var(--amber);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.rv.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hgrid{grid-template-columns:1fr;}
+  .hpanel{flex-direction:row;flex-wrap:wrap;}
+  .hcard{flex:1;min-width:200px;}
+  .agrid{grid-template-columns:1fr;}
+  .astats{grid-template-columns:repeat(4,1fr);}
+  .ctgrid{grid-template-columns:1fr;gap:3rem;}
 }
-
-.about-mf .about-img {
-  margin-bottom: 2rem;
+@media(max-width:768px){
+  .wrap{padding:0 1.5rem;}
+  section{padding:4rem 0;}
+  .nlinks{display:none;}
+  .nburg{display:flex;}
+  .hname{font-size:2rem;}
+  .sgrid{grid-template-columns:1fr;}
+  .pubitem{grid-template-columns:1fr;}
+  .pubnum{display:none;}
+  .eitem{grid-template-columns:1fr;}
+  .thead{flex-direction:column;gap:.3rem;}
 }
-
-.about-mf .about-img img {
-  margin-left: 10px;
+@media(max-width:480px){
+  .astats{grid-template-columns:1fr 1fr;}
 }
-
-
-.skill-mf .progress {
-  /* background-color: #cde1f8; */
-  margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
-  height: .7rem;
-}
-
-.skill-mf .progress .progress-bar {
-  height: .7rem;
-  background-color: #ffbd39;
-}
-
-
-/* Animation styles */
-#typing-animation {
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typing 3s steps(20, end) infinite;
-}
-
-#typing-animation:before {
-  content: "";
-  /* position: absolute; */
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background-color: #ccc;
-  animation: typing-cursor 0.5s ease-in-out infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes typing-cursor {
-  from {
-    width: 5px;
-  }
-  to {
-    width: 0;
-  }
-}
-
-
-/* project image zoom effect */
-
-.zoom-effect {
-  overflow: hidden;
-  transition: transform 0.3s ease-out;
-}
-
-.zoom-effect:hover {
-  transform: scale(1.1);
-}
-
-
 </style>
+</head>
+<body>
 
+<div id="cdot"></div>
+<div id="cring"></div>
+<canvas id="bgc"></canvas>
 
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Achinta Brata Roy Tonmoy</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+<!-- NAV -->
+<nav id="nav">
+  <div class="nw">
+    <span class="nbrand"><span class="hl">A</span>BRT<span style="color:var(--line2)"> /</span> hpc-systems</span>
+    <ul class="nlinks">
+      <li><a href="#about">about</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#publications">research</a></li>
+      <li><a href="#training">training</a></li>
+      <li><a href="#awards">awards</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a href="https://drive.google.com/file/d/1noVBRn7BDRe7-ZP6JaWvhAYLUxXyGumG/view" target="_blank" class="ncv">CV ↗</a></li>
+    </ul>
+    <div class="nburg" id="burger" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mmenu" id="mmenu">
+  <a href="#about" onclick="toggleMob()">about</a>
+  <a href="#skills" onclick="toggleMob()">skills</a>
+  <a href="#experience" onclick="toggleMob()">experience</a>
+  <a href="#projects" onclick="toggleMob()">projects</a>
+  <a href="#publications" onclick="toggleMob()">research</a>
+  <a href="#training" onclick="toggleMob()">training</a>
+  <a href="#awards" onclick="toggleMob()">awards</a>
+  <a href="#contact" onclick="toggleMob()">contact</a>
+  <a href="https://drive.google.com/file/d/1noVBRn7BDRe7-ZP6JaWvhAYLUxXyGumG/view" target="_blank">CV ↗</a>
+</div>
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Achievements</span></a></li> 
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/robot.png); background-size: 50%; background-position: 75% 20%;">
-	          	 <div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Achinta Brata Roy Tonmoy</span></h1>
-
-						<!-- Element to contain animated typing -->
-						<span id="typing-animation"></span>
-
-						<script>
-
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
-
-						// Create an array of typing text
-						const typingTexts = [
-						'Graduate Student at University of Wyoming',
-						' Graduate Teaching Assistant ',
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
-						</script>
-
-						<br>
-						<br>
-			            <h2>Looking for Ph.D. position in the field of Robotics and Control or AI/ML</h2>
-						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
-						<!-- <br> -->
-			            <p><a href="https://scholar.google.com/citations?user=-zQnzbUAAAAJ&hl=en" class="btn btn-primary py-3 px-4">Google Scholar</a> 
-							<a href="https://drive.google.com/file/d/1hqVI00hMPIK88nMSmZdMSNCKUF0DdjXv/view?usp=sharing" class="btn btn-white btn-outline-white py-3 px-4">GRE SCORE</a></p>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-		</div>
-    </section>
-
-
-
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">
-			<div class="row">
-				<div class="row d-flex align-items-stretch">
-				<!-- <div class="row d-flex"> -->
-					<div class="col-md-6 col-lg-5 d-flex">
-						<div class="img-about img d-flex align-items-stretch">
-							<div class="overlay">
-								<div class="row">
-									<div class="col-sm-6 col-md-5">
-									  <div class="about-img">
-										<img src="images/tonmoy.jpg" class="img-fluid rounded b-shadow-a" alt="">
-									  </div>
-									</div>
-									<!-- Details next to profile image -->
-									<div class="col-sm-6 col-md-7">
-									  <div class="about-info">
-										<p><span class="title-s">Name: </span> <span>Achinta Brata Roy Tonmoy</span></p>
-										<p><span class="title-s">Job Role: </span> <span>Graduate Teaching Assistant</span></p>
-										<p><span class="title-s">Skills: </span> <span>Python,Matlab, ROS2, Pytorch, Numpy,SQL,Microsoft office</span></p>
-										<p><span class="title-s">Address: </span> <span>Laramie -82072, WY, USA</span></p>
-									  </div>
-									</div>
-								  </div>
-
-								<div class="skill-mf">
-									<p class="title-s">Skills</p>
-									<span>PYTHON</span> <span class="pull-right">95%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="85" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Reinforcement Learning</span> <span class="pull-right">95%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="75" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Matlab</span> <span class="pull-right">90%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="55" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>SQL</span> <span class="pull-right">95%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="55" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-									
-									<span>Nueral Network</span> <span class="pull-right">92%</span>
-									<div class="progress">
-										<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="45" aria-valuemin="0"
-											aria-valuemax="100"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-						<div class="row justify-content-start pb-3">
-							<div class="col-md-12 heading-section ftco-animate">
-								
-								<h1 class="big">About</h1>
-								<h2 class="mb-4">About Me</h2>
-								
-								<p> I am in the final year of my M.S in Electrical Engineering at University of Wyoming, USA</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Graduate Student</span></li>
-									<li class="d-flex"><span>Domain:</span> <span>Electrical Engineering(Robotics and Control)</span></li>
-									<li class="d-flex"><span>Relevent Courseworks:</span> <span>Cooperative robotics, Nueral Network, Reinforcement Learning,Image Processing, AI for Multi-Agent system</span></li>
-									<li class="d-flex"><span>Thesis:</span> <span>Distributed Variational Inference Trajectory Optimization for Multi-Robot Active Perception in Uncertain Spatial Fields.</span></li>
-								<li class="d-flex"><span> Tools:</span> <span> Visual Code Studio,Jupyter Notebook, Pycharm and MATLAB <!--&amp; Tableau-->></span></li>
-									
-									
-								</ul>
-							</div>
-						</div>
-
-
-						<div class="counter-wrap ftco-animate d-flex mt-md-3">
-							<div class="text">
-								<p class="mb-4">
-									<span class="number" data-number="8">0</span> <span>+</span>
-									<span>&nbsp; Projects completed</span>
-								</p>
-								<p><a href="https://www.linkedin.com/in/achintatonmoy/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    </section>
-
-
-
-	
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">Resume</h2>
-            <p>Graduate student at University of Wyoming , Currently in the final year of M.S. in Electrical Engineering and looking for Ph.D position in the field of Robotics and control or AI/ML</p> 
-          </div>
-        </div>
-
-		<div class="row">
-			<h1 class="big-4">Experience</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-		<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2024-Present</span>
-						<h2>Graduate Teaching Assistant</h2>
-						<span class="position">University Of Wyoming</span>
-						<p class="mt-4">Instructor for Electronics I and II Laboratory (EE-3312): Responsible for pre-lab preparation, conducting lab sessions, and grading student performance. 
-							<ul>
-								<li>Grading for Communication Theory (EE-4440-01): Evaluating student assignments and exams.</li>
-								<li>Grading for Computer Organization (EE-2150-01 and EE-2150-02): Assessing coursework, projects, and exams.</li>
-								<li>Grading for Fall 2024 Laboratory (EE-4440-10): Overseeing lab reports and providing feedback.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<span class="date">2021-2023</span>
-						<h2>Undergrade Research Assistant</h2>
-						<span class="position">Jain University</span>
-						<p class="mt-4">Published two papers in IEEE conferences, showcasing innovative solutions and advancements in sensor-based systems for robotics and security applications. 
-							<ul>
-								<li>Collaborated on the design and implementation of an ultrasonic sensor-based door security camera with wireless data transfer, utilizing a Telegram bot and Wi-Fi technology. This research was presented at the 2023 International Conference on Intelligent and Innovative Technologies in Computing, Electrical, and Electronics (IITCEE).</li>
-								<li>Conducted research on sensor technologies, including a comparative analysis of LIDAR and ultrasonic sensors, contributing to the development of an obstacle avoidance robot car. This work was presented and published at the 2023 International Conference on Advances in Electronics, Communication, Computing, and Intelligent Information Systems (ICAECIS).</li>
-								<!-- <li>Performed migration and enhancements for merchandising dashboard, involved data integration and its feature improvement.--></li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-			</div>
-
-		<br>
-		<br>
-
-		<div class="row">
-			<h1 class="big-4">Education</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-			<div class="row">
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2019-2023</span>
-    					<h2>Bachelor of Technology</h2>
-    					<span class="position">Jain University (Global Campus, Karnataka)</span>
-    					<p class="mt-4">Grade: Distinction & Location: Bangalore, India</p>
-    				</div>
-    			</div>
-
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">Session: 2024-Present</span>
-    					<h2>PostGraduate</h2>
-    					<span class="position">University Of Wyoming</span>
-    					<p class="mt-4">Degree: MS in ELectrical Engineering & Location: Laramie, Wyominmg, USA
-						</p>
-    				</div>
-				</div>
-    		</div>
-
-    		<div class="row justify-content-center mt-5">
-    			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="https://drive.google.com/file/d/1s80jraFk_kKfmN8aj3vJPo-Buwt_ZaxK/view?usp=sharing" class="btn btn-primary py-4 px-5">Download CV</a></p>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-   
-
-    <section class="ftco-section" id="project-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">AWARDS</h1>
-            <h2 class="mb-4">AWARD</h2>
-            <p>Below are the Prestigious scholarships I have been Awarded between 2019 to 2024.</p>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/proj_1.jpeg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://studyinindia.gov.in/">STUDY IN  INDIA</a></h3>
-                <p>This SCholarship Covered my Tuition fees, Accomodation and Foods During my B.Tech Degree at JAIN UNIVERSITY, Bangalore, INDIA</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="https://www.chinesescholarshipcouncil.com/#google_vignette" class="block-20 zoom-effect" style="background-image: url('images/proj_2.jpeg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="#">China Scholarship Council</a></h3>
-                <p>This Scholarship was awarded in 2019, to pursue my Bachelor Degree which is fully Funded by the Education Ministry of Bangladesh and China. </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="https://www.turkiyeburslari.gov.tr/" class="block-20 zoom-effect" style="background-image: url('images/proj_3.jpeg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://www.turkiyeburslari.gov.tr/">TURKEY BRUSLARI SCHOLARSHIP</a></h3>
-                <p>Türkiye Scholarships is an international scholarship program funded by the Government of Turkey. I was awarded this scholarship in the year of 2024 to pursue my Masters degree.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-	<br> 
-	  <!-- added justify-content-center to center align the last two projects -->
-		 <!--<div class="row d-flex justify-content-center">  
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main">Sales Forecast- Time Series Forecasting</a></h3>
-				  <p>Used multiple machine learning models to forecast sales (retail store) and performed time series analysis.</p>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-				<a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb" class="block-20 zoom-effect" style="background-image: url('images/proj_5.jpg');">
-				</a>
-				<div class="text mt-3 float-right d-block">
-  
-				  <h3 class="heading"><a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb">Customer Segmentation using clustering model</a></h3>
-				  <p>Developed a ML model to give various recommendations of financial products &amp; services on target customer groups.</p>
-				</div>
-			  </div>
-			</div>
-		 </div>
-	  </div>
-    </section> -->
-
-	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-      <div class="container">
-		<div class="row d-md-flex align-items-center">
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="10">0</strong>
-                <span>Achievements</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="5">0</strong>
-                <span>Projects</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="50">0</strong>
-                <span>Mentored Students</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text">
-                <strong class="number" data-number="3">0</strong>
-                <span>IEEE Conference Paper</span>
-              </div>
-            </div>
-          </div>
+<!-- HERO -->
+<section id="hero" style="padding:0;">
+<div class="wrap">
+  <div class="hgrid">
+    <div>
+      <div class="htag"><span class="hpulse"></span>MS Candidate · University of Wyoming</div>
+      <h1 class="hname">
+        <span class="first">Achinta Brata</span><br>
+        Roy <span class="last">Tonmoy</span>
+      </h1>
+      <div class="hroles">
+        <div class="rw">
+          <span class="r1">HPC Systems &amp; Research Computing</span>
+          <span class="r2">MS Electrical Engineering — UW 2026</span>
+          <span class="r3">AI/ML Research · Distributed Robotics</span>
+          <span class="r1">HPC Systems &amp; Research Computing</span>
         </div>
       </div>
-	
-	<div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-		<!-- <div class="container"> -->
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>More projects on<span> Github  </span> </h2>
-					<div class="heading"> <h4> Currently Working on Supervised ML  &amp; Reinforcement Learning </h4>
-					<br>
-					<p><a href="https://github.com/AchintaTonmoy" class="btn btn-primary py-3 px-5">GitHub</a></p>
-					</div>
-				</div>
-			</div>
-		<!-- </div> -->
-	</div>
+      <p class="hbio">
+        Graduate researcher at the intersection of <strong>HPC infrastructure</strong> and <strong>AI/ML systems</strong>.
+        Hands-on experience configuring SLURM clusters, iSCSI SAN storage, and Warewulf node provisioning —
+        gained through an NSF-funded workshop at CU Boulder and building a four-node Ubuntu cluster
+        for the UW ECE department. Currently researching distributed multi-robot perception for my thesis.
+      </p>
+      <div class="hpills">
+        <span class="pill pt">HPC · SLURM · Warewulf</span>
+        <span class="pill pa">Linux Sysadmin</span>
+        <span class="pill pa">iSCSI · SAN Storage</span>
+        <span class="pill pg">AI / ML Research</span>
+        <span class="pill pg">4 publications</span>
+        <span class="pill pw">Requires H-1B sponsorship</span>
+      </div>
+      <div class="hlinks">
+        <a href="mailto:atonmoy@uwyo.edu">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          atonmoy@uwyo.edu
+        </a>
+        <span class="hsep">·</span>
+        <a href="https://www.linkedin.com/in/achintatonmoy/" target="_blank">LinkedIn</a>
+        <span class="hsep">·</span>
+        <a href="https://scholar.google.com/citations?user=-zQnzbUAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <span class="hsep">·</span>
+        <a href="tel:+13077612356">307-761-2356</a>
+      </div>
+    </div>
+    <div class="hpanel">
+      <div class="hcard ac">
+        <div class="hcard-lbl">Target Positions</div>
+        <div class="hcard-val"><strong>ARCC HPC Sysadmin Internship</strong><br>AI4WY Student Position<br>University of Wyoming</div>
+      </div>
+      <div class="hcard gc">
+        <div class="hcard-lbl">Availability</div>
+        <div class="hcard-val"><strong style="color:var(--green)">May 18, 2026</strong> — flexible end<br><span style="font-size:.75rem;color:var(--ink3)">Requires H-1B sponsorship</span></div>
+      </div>
+      <div class="hcard">
+        <div class="hcard-lbl">Current Status</div>
+        <div class="hcard-val"><strong>MS EE</strong> · Expected Aug 2026<br>GPA 3.50 · Thesis in progress</div>
+      </div>
+    </div>
+  </div>
+</div>
 </section>
 
+<!-- ABOUT -->
+<section id="about">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">01</span><h2 class="sh-title">About</h2><div class="sh-line"></div></div>
+  <div class="agrid">
+    <div class="atxt rv d1">
+      <p>I grew up in Bangladesh and have spent the last few years studying and researching across three countries — Bangladesh, India, and now the US. I'm currently in Laramie finishing my master's, where I work as a teaching assistant and run experiments for my thesis on distributed multi-robot perception.</p>
+      <p>My interest in HPC systems came from seeing first-hand how much time researchers lose to poorly configured compute infrastructure. In January 2026 I attended the <strong>NSF-funded RMACC workshop at CU Boulder</strong> — a full week on the Alpine supercomputer cluster doing real sysadmin work with Warewulf, SLURM, GPFS, and XDMoD. Before that, I configured a <strong>four-node Ubuntu 24.04 LTS server cluster</strong> for the UW ECE department, connecting a Dell EMC ME4024 SAN via iSCSI and writing an admin guide for lab users with no prior Linux experience.</p>
+      <p>I'm not a seasoned HPC admin yet — that's honest. But I pick things up quickly, I'm comfortable in a terminal, and I genuinely care about the infrastructure side of research computing. I'm hoping to grow into it through the ARCC internship.</p>
+    </div>
+    <div class="astats rv d2">
+      <div class="astat"><span class="an">3.50</span><span class="al">GPA (MS)</span></div>
+      <div class="astat"><span class="an">3.69</span><span class="al">GPA (BTech)</span></div>
+      <div class="astat"><span class="an">4</span><span class="al">Publications</span></div>
+      <div class="astat"><span class="an">324</span><span class="al">GRE Total</span></div>
+    </div>
+  </div>
+</div>
+</section>
 
+<!-- EDUCATION -->
+<section id="education">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">02</span><h2 class="sh-title">Education</h2><div class="sh-line"></div></div>
+  <div class="elist">
+    <div class="eitem rv d1">
+      <div>
+        <div class="edeg">Master of Science, Electrical Engineering</div>
+        <div class="euni">University of Wyoming · Laramie, WY</div>
+        <div class="egpa">GPA 3.50 / 4.00 &nbsp;·&nbsp; Advisor: Dr. Chao Jiang</div>
+        <div class="ecourses">Deep Learning · Reinforcement Learning · Intro to AI · AI for Multi-Agent Systems · Stochastic Modelling · Cooperative Robotics · Drone-Based Remote Sensing</div>
+      </div>
+      <div class="edate">Expected Aug 2026</div>
+    </div>
+    <div class="eitem rv d2">
+      <div>
+        <div class="edeg">B.Tech, Electrical &amp; Electronics Engineering</div>
+        <div class="euni">Jain University · Bangalore, India</div>
+        <div class="egpa">GPA 3.69 / 4.00 &nbsp;·&nbsp; Study In India Government Scholar</div>
+      </div>
+      <div class="edate">Graduated Aug 2023</div>
+    </div>
+    <div class="eitem rv d3" style="border-bottom:none;">
+      <div>
+        <div class="edeg">GRE</div>
+        <div class="euni">Total 324 &nbsp;·&nbsp; Quantitative 168 &nbsp;·&nbsp; Verbal 156 &nbsp;·&nbsp; AWA 3.0</div>
+      </div>
+      <a href="https://drive.google.com/file/d/1noVBRn7BDRe7-ZP6JaWvhAYLUxXyGumG/view?usp=sharing" target="_blank" class="edate" style="color:var(--amber)">Score report ↗</a>
+    </div>
+  </div>
+</div>
+</section>
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4">Contact Me</h2>
-            <p>Below are the details to reach out to me!</p>
-          </div>
-        </div>
+<!-- SKILLS -->
+<section id="skills">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">03</span><h2 class="sh-title">Technical Skills</h2><div class="sh-line"></div></div>
+  <div class="snote rv">
+    <strong>★ Highlighted tools</strong> are from direct hands-on work: the NSF-funded RMACC workshop on the <strong>Alpine supercomputer at CU Boulder (Jan 2026)</strong>, and configuring a <strong>4-node Ubuntu 24.04 LTS cluster with Dell EMC ME4024 SAN via iSCSI</strong> for the UW ECE department. All other tools are from coursework, research, or lab teaching.
+  </div>
+  <div class="sgrid">
+    <div class="sgroup rv d1">
+      <div class="sg-title">HPC Cluster</div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">SLURM</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="88"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">Warewulf (wwctl)</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="82"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">GPFS</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="75"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">XDMoD</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="70"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname">Alpine (CURC)</span><span class="sblvl">Workshop</span></div><div class="sbtrack"><div class="sbfill t" data-w="65"></div></div></div>
+    </div>
+    <div class="sgroup rv d2">
+      <div class="sg-title">Linux &amp; Sysadmin</div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">Ubuntu 24.04 LTS</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="90"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">Bash</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="85"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">SSH / Remote Admin</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="88"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname">System health monitoring</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill t" data-w="80"></div></div></div>
+    </div>
+    <div class="sgroup rv d3">
+      <div class="sg-title">Storage &amp; Networking</div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">iSCSI</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="80"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">Dell EMC ME4024 SAN</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill" data-w="78"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname">Volume mapping / mounts</span><span class="sblvl">Hands-on</span></div><div class="sbtrack"><div class="sbfill t" data-w="75"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname">Basic TCP/IP</span><span class="sblvl">Coursework</span></div><div class="sbtrack"><div class="sbfill t" data-w="60"></div></div></div>
+    </div>
+    <div class="sgroup rv d1">
+      <div class="sg-title">ML &amp; Programming</div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname hi">Python</span><span class="sblvl">Primary</span></div><div class="sbtrack"><div class="sbfill g" data-w="92"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname">PyTorch</span><span class="sblvl">Research</span></div><div class="sbtrack"><div class="sbfill g" data-w="82"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname">TensorFlow / Scikit-learn</span><span class="sblvl">Coursework</span></div><div class="sbtrack"><div class="sbfill g" data-w="72"></div></div></div>
+      <div class="sbrow"><div class="sbtop"><span class="sbname">MATLAB</span><span class="sblvl">Coursework</span></div><div class="sbtrack"><div class="sbfill g" data-w="75"></div></div></div>
+    </div>
+    <div class="sgroup rv d2">
+      <div class="sg-title">Hardware Exposure</div>
+      <div class="chips">
+        <span class="chip">NVIDIA H100</span><span class="chip">NVIDIA L40S</span><span class="chip">NVIDIA GH200 (AI4WY)</span>
+        <span class="chip">AMD EPYC</span><span class="chip">Dell PowerEdge</span><span class="chip">Rack &amp; stack</span>
+        <span class="chip">Data center / DCOPS</span><span class="chip">PXE boot concepts</span>
+      </div>
+    </div>
+    <div class="sgroup rv d3">
+      <div class="sg-title">Robotics &amp; Other</div>
+      <div class="chips">
+        <span class="chip hi">ROS 2</span><span class="chip">Path Planning</span><span class="chip">SLAM basics</span>
+        <span class="chip">FARSITE</span><span class="chip">C</span><span class="chip">NumPy / Pandas</span>
+        <span class="chip">OpenCV</span><span class="chip">CircuitMaker 2000</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-4">Address</h3>
-	            <p>Laramie 82072, WY, USA</p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-4">Contact Number</h3>
-	            <p><a href="tel://0101010101">+13077612356</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">atonmoy@uwyo.edu</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-4">Download Resume</h3>
-	            <p><a href="https://drive.google.com/file/d/1N-FVzVPPkyGnExKs1ENVmE9wgjDic_er/view?usp=sharing">resumelink</a></p>
-	          </div> 
-          </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">04</span><h2 class="sh-title">Experience</h2><div class="sh-line"></div></div>
+  <div class="tline">
 
-		  <div class="container">
-			<br>
-			<br>
-			<div class="row justify-content-center">
-				<div class="col-md-7 ftco-animate text-center">
-					<h2>Have a<span> Question?  </span> <a href="https://forms.gle/8AqPybbQAXBoqDrD8" class="btn btn-primary py-3 px-5">Click Here</a> </h2>
-				</div>
-			</div>
-				<br>
-					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
-					  <li class="ftco-animate normal-txt">Find me on  </li>
-					  <!--<li class="ftco-animate"><a href="#"><span class="icon-youtube"></span></a></li>-->
-					  <!--<li class="ftco-animate"><a href="#"><span class="icon-linkedin"></span></a></li> --> 
-					  <!--<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li> -->
-					  <li class="ftco-animate"><a href="https://www.facebook.com/achinto.tonmoy/"><span class="icon-facebook"></span></a></li>
-				      <li class="ftco-animate"><a href="https://www.instagram.com/achintotonmoy/"><span class="icon-instagram"></span></a></li>
-					</ul>
-				<br>
-		   </div>
-   </div>
- </section>
+    <div class="titem hpc rv d1">
+      <div class="tdot"></div>
+      <div class="thead">
+        <div class="trole">HPC Systems Administration Workshop Participant</div>
+        <div class="tdate">Jan 2026</div>
+      </div>
+      <div class="torg"><span>RMACC · CU Boulder Research Computing (CURC)</span> &nbsp;·&nbsp; Boulder, CO</div>
+      <div class="tcard">
+        <ul class="tul">
+          <li>NSF-funded one-week intensive — <strong>"Launching Your Career in HPC"</strong> (NSF OAC #2322260) on the Alpine supercomputer cluster.</li>
+          <li>Used <strong>Warewulf (wwctl)</strong> to configure a stateless, diskless OS image and deploy it to an assigned compute node in a test environment.<span class="ttag">Warewulf</span></li>
+          <li>Submitted interactive and batch jobs on Alpine using <strong>SLURM</strong> (sinteractive, sbatch); explored sinfo, squeue, scontrol, sacct.<span class="ttag">SLURM</span></li>
+          <li>Evaluated NVIDIA H100 and L40S GPU node options during a hardware procurement exercise; learned trade-offs in GPU memory, compute specs, and workload suitability.<span class="ttag">NVIDIA H100/L40S</span></li>
+          <li>Explored <strong>GPFS scratch filesystem</strong> — quota limits, purge policies, mount config; used <strong>XDMoD</strong> to review cluster utilization trends.<span class="ttag">GPFS</span><span class="ttag">XDMoD</span></li>
+          <li>Observed rack-and-stack and data center infrastructure (power, cooling) with the CU Boulder DCOPS team.</li>
+        </ul>
+      </div>
+    </div>
 
+    <div class="titem hpc rv d2">
+      <div class="tdot"></div>
+      <div class="thead">
+        <div class="trole">Linux Server &amp; Storage Lab Setup</div>
+        <div class="tdate">2024 – present</div>
+      </div>
+      <div class="torg"><span>University of Wyoming — ECE Department (ERB Server Room)</span> &nbsp;·&nbsp; Laramie, WY</div>
+      <div class="tcard">
+        <ul class="tul">
+          <li>Configured a four-node Ubuntu server cluster with centralized SAN storage for the ECE department lab.</li>
+          <li>Installed <strong>Ubuntu 24.04 LTS</strong> on four servers, set up SSH access, verified system health (df, lsblk, uptime, free).<span class="ttag">Ubuntu 24.04</span></li>
+          <li>Connected a <strong>Dell EMC ME4024 storage array via iSCSI</strong>; mapped volumes to each server and confirmed mounts.<span class="ttag">iSCSI</span><span class="ttag">ME4024</span></li>
+          <li>Wrote a beginner-friendly admin guide covering SSH remote access, filesystem navigation, file operations, storage inspection, and safe server shutdown.</li>
+        </ul>
+      </div>
+    </div>
 
- 
-	
-    <footer class="ftco-footer ftco-section">
-		<div class="container">
-		  <div class="row">
-			<div class="col-md-12 text-center">
-  
-			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-			</div>
-		  </div>
-		</div>
-	  </footer>
+    <div class="titem rv d3">
+      <div class="tdot"></div>
+      <div class="thead">
+        <div class="trole">Graduate Teaching Assistant</div>
+        <div class="tdate">Fall 2024 – present</div>
+      </div>
+      <div class="torg"><span>University of Wyoming</span> &nbsp;·&nbsp; Laramie, WY</div>
+      <div class="tcard">
+        <ul class="tul">
+          <li>Supervised Electronics I &amp; II laboratory sessions; assisted students with circuit building and hands-on lab experiments.</li>
+          <li>Operated oscilloscopes, gain-phase meters, and function generators during Electronics II Lab.</li>
+          <li>Graded assignments, exams, and projects for EE-4440 Communication Theory and EE-2150 Computer Organisation; provided constructive feedback.</li>
+        </ul>
+      </div>
+    </div>
 
+  </div>
+</div>
+</section>
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<!-- PROJECTS -->
+<section id="projects">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">05</span><h2 class="sh-title">Projects &amp; Thesis</h2><div class="sh-line"></div></div>
+  <div class="thcard rv">
+    <div class="thpulse"><span class="thpdot"></span>Active thesis research — Spring 2025 – present</div>
+    <div class="thtitle">Distributed Variational Inference Trajectory Optimization for Multi-Robot Active Perception in Uncertain Spatial Fields</div>
+    <div class="thdesc">Working on decentralised trajectory optimisation where a team of mobile sensors coordinates to map an uncertain environment without a central coordinator. Combines probabilistic inference with multi-agent coordination. <strong>Advisor: Dr. Chao Jiang, UW.</strong></div>
+  </div>
+  <div class="pgrid">
+    <div class="pcard rv d1">
+      <div class="pc-title">CNN Audio Classification</div>
+      <div class="pc-course">EE 5410 Neural Networks · Fall 2024</div>
+      <div class="pc-desc">Designed and trained a CNN in PyTorch to classify cat and dog sounds from FFT-based spectrogram images (640×480 JPEG). 80/10/10 split, data augmentation, batch normalization — over 95% test accuracy.</div>
+      <div class="ptags"><span class="ptag">PyTorch</span><span class="ptag">CNN</span><span class="ptag">FFT</span><span class="ptag">Spectrogram</span></div>
+    </div>
+    <div class="pcard rv d2">
+      <div class="pc-title">Fashion-MNIST (FCNN)</div>
+      <div class="pc-course">EE 5410 Neural Networks · Fall 2024</div>
+      <div class="pc-desc">Fully connected neural network in PyTorch — 10 clothing categories, 60k training / 10k test images (28×28 grayscale). Over 80% accuracy; train/val loss curves verify no overfitting.</div>
+      <div class="ptags"><span class="ptag">PyTorch</span><span class="ptag">FCNN</span><span class="ptag">Torchvision</span></div>
+    </div>
+    <div class="pcard rv d3">
+      <div class="pc-title">Multi-Robot Flocking</div>
+      <div class="pc-course">Cooperative Robotics</div>
+      <div class="pc-desc">Implemented Olfati-Saber Algorithm 3 (β-agents) for 2D multi-robot flocking. Simulated 100-agent consensus with dynamic obstacle avoidance and goal tracking in MATLAB.</div>
+      <div class="ptags"><span class="ptag">MATLAB</span><span class="ptag">Multi-agent</span><span class="ptag">Flocking</span></div>
+    </div>
+    <div class="pcard rv d1">
+      <div class="pc-title">Pursuit–Evasion Q-Learning</div>
+      <div class="pc-course">Reinforcement Learning</div>
+      <div class="pc-desc">Custom OpenAI Gym environment for a pursuer-evader task on a 20×20 grid. ε-greedy Q-learning with separate Q-tables; evaluated reward trends, capture times, and simulation videos.</div>
+      <div class="ptags"><span class="ptag">Python</span><span class="ptag">Q-Learning</span><span class="ptag">OpenAI Gym</span></div>
+    </div>
+    <div class="pcard rv d2">
+      <div class="pc-title">Dyna-Q Maze Navigation</div>
+      <div class="pc-course">Reinforcement Learning</div>
+      <div class="pc-desc">Dyna-Q algorithm combining model-based and model-free RL on a deterministic 20×20 maze. Compared sample efficiency across planning step counts.</div>
+      <div class="ptags"><span class="ptag">Python</span><span class="ptag">Dyna-Q</span><span class="ptag">Model-based RL</span></div>
+    </div>
+    <div class="pcard rv d3">
+      <div class="pc-title">Inverted Pendulum — LQR</div>
+      <div class="pc-course">Stochastic Modelling</div>
+      <div class="pc-desc">Discrete-time LQR for pendulum stabilization. Derived backward/forward recursions for optimal cost-to-go and control gain; analyzed state (x, v, θ, ω) and control trajectories.</div>
+      <div class="ptags"><span class="ptag">MATLAB</span><span class="ptag">LQR</span><span class="ptag">Control Theory</span></div>
+    </div>
+  </div>
+</div>
+</section>
 
+<!-- PUBLICATIONS -->
+<section id="publications">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">06</span><h2 class="sh-title">Publications</h2><div class="sh-line"></div></div>
+  <div class="plist">
+    <div class="pubitem rv d1">
+      <div class="pubnum">A1</div>
+      <div>
+        <div class="pubbwrap"><span class="pubbadge acc">Accepted</span></div>
+        <div class="pubtitle">Distributed Flocking Control with Dynamic Obstacles and Moving Goal Tracking</div>
+        <div class="pubauth"><strong>A. B. R. Tonmoy</strong> et al.</div>
+        <div class="pubvenue"><em>IGNITE-2026</em> · KJ College of Engineering and Management Research, Pune, India</div>
+      </div>
+    </div>
+    <div class="pubitem rv d2">
+      <div class="pubnum">P1</div>
+      <div>
+        <div class="pubbwrap"><span class="pubbadge pub">Published</span></div>
+        <div class="pubtitle">IoT-Based Portable ECG and Heart Rate Monitoring System with Minimal Cost</div>
+        <div class="pubauth"><strong>A. B. R. Tonmoy</strong>, S. Sultan, and S. R. Bristy</div>
+        <div class="pubvenue"><em>ICAET 2025</em> · 1st International Conference on AIML-Applications for Engineering &amp; Technology, Pune, India</div>
+        <a href="https://doi.org/10.1109/ICAET63349.2025.10932314" target="_blank" class="pubdoi">DOI: 10.1109/ICAET63349.2025.10932314 ↗</a>
+      </div>
+    </div>
+    <div class="pubitem rv d3">
+      <div class="pubnum">P2</div>
+      <div>
+        <div class="pubbwrap"><span class="pubbadge pub">Published</span></div>
+        <div class="pubtitle">A Comparative Study on LIDAR and Ultrasonic Sensor for Obstacle Avoidance Robot Car</div>
+        <div class="pubauth"><strong>A. B. R. Tonmoy</strong>, M. D. S. Zinan, S. Sultan, and A. S. Sarker</div>
+        <div class="pubvenue"><em>ICAECIS 2023</em> · International Conference on Advances in Electronics, Communication, Computing and Intelligent Information Systems, Bangalore, India</div>
+        <a href="https://doi.org/10.1109/ICAECIS58353.2023.10170626" target="_blank" class="pubdoi">DOI: 10.1109/ICAECIS58353.2023.10170626 ↗</a>
+      </div>
+    </div>
+    <div class="pubitem rv" style="border-bottom:none;">
+      <div class="pubnum">P3</div>
+      <div>
+        <div class="pubbwrap"><span class="pubbadge pub">Published</span></div>
+        <div class="pubtitle">Ultrasonic Sensor Based Door Security Camera with Wireless Data Transfer in Telegram Bot Using WiFi</div>
+        <div class="pubauth">N. Raghu, I. Miah, and <strong>A. B. R. Tonmoy</strong></div>
+        <div class="pubvenue"><em>IITCEE 2023</em> · International Conference on Intelligent and Innovative Technologies in Computing, Electrical and Electronics, Bengaluru, India</div>
+        <a href="https://doi.org/10.1109/IITCEE57236.2023.10090954" target="_blank" class="pubdoi">DOI: 10.1109/IITCEE57236.2023.10090954 ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  
-  <script src="js/main.js"></script>
-    
-  </body>
+<!-- TRAINING -->
+<section id="training">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">07</span><h2 class="sh-title">Training &amp; Certifications</h2><div class="sh-line"></div></div>
+  <div class="trgrid rv d1">
+    <div class="trcard">
+      <div class="trlbl">Completed · Jan 2026</div>
+      <div class="trname">RMACC Student Cohort — "Launching Your Career in HPC"</div>
+      <div class="trsub">CU Boulder Research Computing (CURC) · Alpine Supercomputer · NSF OAC #2322260</div>
+      <a href="https://drive.google.com/file/d/11b9l9kGhOCtXoUEB9cIcKFlf3wNFN40g/view?usp=sharing" target="_blank" class="trlink">View Certificate ↗</a>
+    </div>
+    <div class="trcard">
+      <div class="trlbl">Planned · AI4WY Program</div>
+      <div class="trname">NVIDIA-Certified ML &amp; GPU Programming Training</div>
+      <div class="trsub">University of Wyoming · AI for Wyoming (AI4WY) initiative — NVIDIA GH200 hardware available</div>
+      <span class="trplan">Planned</span>
+    </div>
+  </div>
+  <div class="certph rv d2">
+    <div class="certph-txt">Certificate image placeholders — replace src with actual certificate images</div>
+    <div class="certgrid">
+      <div class="cslot"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="cslot-lbl">RMACC HPC<br>Jan 2026</div></div>
+      <div class="cslot"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="cslot-lbl">ICAET 2025<br>Oral Presentation</div></div>
+      <div class="cslot"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="cslot-lbl">ICAECIS 2023<br>Oral Presentation</div></div>
+      <div class="cslot"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="cslot-lbl">IITCEE 2023<br>Oral Presentation</div></div>
+      <div class="cslot"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="cslot-lbl">Turkish Burslari<br>2024</div></div>
+      <div class="cslot"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="cslot-lbl">Add certificate<br>image here</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">08</span><h2 class="sh-title">Awards &amp; Scholarships</h2><div class="sh-line"></div></div>
+  <div class="awgrid rv d1">
+    <div class="awcard">
+      <div class="awyear">2024</div>
+      <div class="awname">Turkish Burslari Government Scholarship</div>
+      <div class="awdesc">Awarded to pursue a Master's degree in Robotics at Izmir Katip Celebi University, Turkey.</div>
+      <a href="https://drive.google.com/file/d/1g7zcIPObvrTB7CQbNf0ynrJE322afIKk/view?usp=sharing" target="_blank" class="awlink">Certificate ↗</a>
+    </div>
+    <div class="awcard">
+      <div class="awyear">2019</div>
+      <div class="awname">Study In India Government Scholarship</div>
+      <div class="awdesc">Covered tuition fees, accommodation, and meals at Jain University, Bangalore, India.</div>
+      <a href="https://drive.google.com/file/d/1Otld7q1qgwoMhfpaGpy1Db0a8QZ_eiNk/view?usp=sharing" target="_blank" class="awlink">Certificate ↗</a>
+    </div>
+    <div class="awcard">
+      <div class="awyear">2019</div>
+      <div class="awname">China Scholarship Council (CSC-Type A)</div>
+      <div class="awdesc">Awarded by the Bangladesh Education Ministry to pursue a Bachelor's degree at Nanjing University.</div>
+      <a href="https://drive.google.com/file/d/1zdwcJKJItUWq8LEUsBXBRhzbwg85P1gR/view?usp=sharing" target="_blank" class="awlink">Certificate ↗</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">09</span><h2 class="sh-title">Activities</h2><div class="sh-line"></div></div>
+  <div class="acgrid rv d1">
+    <div class="accard">
+      <div class="acrole">Marketing Manager</div>
+      <div class="acorg">ITE UWYO Student Chapter · Spring 2025 – present</div>
+      <div class="acdesc">Promote events through flyers and QR-based sign-ups to enhance student participation. Volunteered at a major university event in October 2025.</div>
+    </div>
+    <div class="accard">
+      <div class="acrole">Representative</div>
+      <div class="acorg">International Student Association (ISA) · Fall 2024 – present</div>
+      <div class="acdesc">Assist new international students with arrival support, housing setup, and campus orientation. Help organize ISA Coffee Hours and cultural events.</div>
+    </div>
+    <div class="accard">
+      <div class="acrole">Volunteer Member</div>
+      <div class="acorg">Bangladesh Student Association (BSA) · Fall 2024 – present</div>
+      <div class="acdesc">Participate in cultural programs and assist with event logistics and management.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="wrap">
+  <div class="sh rv"><span class="sh-num">10</span><h2 class="sh-title">Contact</h2><div class="sh-line"></div></div>
+  <div class="ctgrid">
+    <div class="rv d1">
+      <h3 class="cth">Let's connect.</h3>
+      <p class="ctp">Looking for the <strong>ARCC HPC Sysadmin Internship</strong> and the <strong>AI4WY Student Position</strong> at UW. Open to conversations about HPC systems, research computing infrastructure, and EE/ML research.</p>
+      <div class="ctavail">Available to start <strong>May 18, 2026</strong> — end date flexible and open to continuing.</div>
+      <span class="ctspon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Requires U.S. H-1B work authorization sponsorship
+      </span>
+    </div>
+    <div class="ctlinks rv d2">
+      <a href="mailto:atonmoy@uwyo.edu" class="ctlink">
+        <div class="cticon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink2)" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><span class="ctlbl">Email</span><span class="ctval">atonmoy@uwyo.edu</span></div>
+      </a>
+      <a href="tel:+13077612356" class="ctlink">
+        <div class="cticon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink2)" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.41 2 2 0 0 1 3.62 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><span class="ctlbl">Phone</span><span class="ctval">+1 307-761-2356</span></div>
+      </a>
+      <a href="https://www.linkedin.com/in/achintatonmoy/" target="_blank" class="ctlink">
+        <div class="cticon"><svg viewBox="0 0 24 24" fill="var(--ink2)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div><span class="ctlbl">LinkedIn</span><span class="ctval">linkedin.com/in/achintatonmoy</span></div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=-zQnzbUAAAAJ&hl=en" target="_blank" class="ctlink">
+        <div class="cticon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink2)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div><span class="ctlbl">Google Scholar</span><span class="ctval">scholar.google.com</span></div>
+      </a>
+      <a href="https://drive.google.com/file/d/1noVBRn7BDRe7-ZP6JaWvhAYLUxXyGumG/view" target="_blank" class="ctlink">
+        <div class="cticon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink2)" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div><span class="ctlbl">CV / Resume</span><span class="ctval">Download from Google Drive ↗</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="ftin">
+    <span class="ftl">© 2026 Achinta Brata Roy Tonmoy &nbsp;·&nbsp; Laramie, WY</span>
+    <div class="ftr">
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="#publications">research</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</footer>
+
+<button id="stt" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* CURSOR */
+const cdot=document.getElementById('cdot'),cring=document.getElementById('cring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function tick(){cdot.style.left=mx+'px';cdot.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cring.style.left=rx+'px';cring.style.top=ry+'px';requestAnimationFrame(tick);})();
+document.querySelectorAll('a,button,.pcard,.hcard,.ctlink,.trcard,.awcard,.accard,.cslot,.tcard,.sgroup').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+
+/* NAV */
+const nav=document.getElementById('nav');
+const navLinks=document.querySelectorAll('.nlinks a');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('stt').classList.toggle('vis',window.scrollY>400);
+});
+const secs=document.querySelectorAll('section[id]');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});
+},{threshold:.3}).observe&&secs.forEach(s=>new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});},{threshold:.3}).observe(s));
+
+function toggleMob(){document.getElementById('mmenu').classList.toggle('open');}
+
+/* REVEAL */
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.07}).observe&&
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.07}).observe(el));
+
+/* SKILL BARS */
+document.querySelectorAll('.sgroup').forEach(g=>new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.sbfill').forEach(b=>{b.style.width=b.dataset.w+'%';});}});
+},{threshold:.2}).observe(g));
+
+/* CANVAS */
+const canvas=document.getElementById('bgc'),ctx=canvas.getContext('2d');
+let W,H,pts=[];
+let cmx=0,cmy=0;
+document.addEventListener('mousemove',e=>{cmx=e.clientX;cmy=e.clientY;});
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+function initPts(n){pts=[];for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.5+.4,a:Math.random()>.7});}
+function drawGrid(){const s=65;ctx.strokeStyle='rgba(30,40,65,.4)';ctx.lineWidth=.5;for(let x=0;x<W;x+=s){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}for(let y=0;y<H;y+=s){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}}
+function frame(){
+  ctx.clearRect(0,0,W,H);
+  drawGrid();
+  const mg=ctx.createRadialGradient(cmx,cmy,0,cmx,cmy,300);
+  mg.addColorStop(0,'rgba(245,158,11,.045)');mg.addColorStop(1,'transparent');
+  ctx.fillStyle=mg;ctx.fillRect(0,0,W,H);
+  pts.forEach(p=>{
+    const dx=cmx-p.x,dy=cmy-p.y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<360){p.vx+=dx/d*.003;p.vy+=dy/d*.003;}
+    p.vx*=.995;p.vy*=.995;p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    const c=p.a?'245,158,11':'6,182,212';
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(${c},.55)`;ctx.fill();
+  });
+  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+    const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<110){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(245,158,11,${(.055*(1-d/110)).toFixed(3)})`;ctx.lineWidth=.6;ctx.stroke();}
+  }
+  requestAnimationFrame(frame);
+}
+resize();initPts(60);frame();
+window.addEventListener('resize',()=>{resize();initPts(60);});
+</script>
+</body>
 </html>
