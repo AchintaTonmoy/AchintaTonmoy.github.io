@@ -24,15 +24,19 @@
   --rad:4px;--rad-lg:8px;--nav-h:60px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:22px;background:var(--bg0);cursor:none;}
+html{
+  scroll-behavior:smooth;
+  font-size:16px;
+  background:var(--bg0);
+  cursor:none;
+}
 body{
   background:var(--bg0);
   color:var(--ink);
   font-family:var(--sans);
   font-weight:400;
   line-height:1.65;
-
-  font-size:1.5rem;
+  font-size:1rem;
 }
 ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--bg0);}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px;}
 a{color:inherit;text-decoration:none;}
@@ -309,7 +313,7 @@ section:nth-of-type(even){background:var(--bg1);}
 .thtitle{font-size:.97rem;font-weight:600;color:var(--ink);line-height:1.55;margin-bottom:.6rem;}
 .thdesc{font-size:.82rem;color:var(--ink2);line-height:1.78;}
 .thdesc strong{color:var(--ink);font-weight:600;}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.25rem;}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;}
 .pcard{
   display: flex;
   flex-direction: column;
@@ -806,28 +810,106 @@ footer{border-top:1px solid var(--line);padding:2rem 0;position:relative;z-index
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .hgrid{grid-template-columns:1fr;}
-  .hpanel{flex-direction:row;flex-wrap:wrap;}
-  .hcard{flex:1;min-width:200px;}
-  .agrid{grid-template-columns:1fr;}
-  .astats{grid-template-columns:repeat(4,1fr);}
-  .ctgrid{grid-template-columns:1fr;gap:3rem;}
+  .hgrid{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+  .hpanel{
+    flex-direction:row;
+    flex-wrap:wrap;
+  }
+  .hcard{
+    flex:1;
+    min-width:200px;
+  }
+  .agrid{
+    grid-template-columns:1fr;
+  }
+  .astats{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .ctgrid{
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
 }
 @media(max-width:768px){
-  .wrap{padding:0 1.5rem;}
-  section{padding:4rem 0;}
-  .nlinks{display:none;}
-  .nburg{display:flex;}
-  .hname{font-size:2rem;}
-  .sgrid{grid-template-columns:1fr;}
-  .pubitem{grid-template-columns:1fr;}
-  .pubnum{display:none;}
- .eitem{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-  .thead{flex-direction:column;gap:.3rem;}
+  html{
+    font-size:14px;
+    cursor:auto;
+  }
+
+  body{
+    font-size:1rem;
+  }
+
+  #cdot,
+  #cring{
+    display:none;
+  }
+
+  .wrap{
+    padding:0 1rem;
+  }
+
+  section{
+    padding:3rem 0;
+  }
+
+  .nlinks{
+    display:none;
+  }
+
+  .nburg{
+    display:flex;
+  }
+
+  .mmenu{
+    gap:.5rem;
+    padding:.8rem;
+  }
+
+  .mmenu a{
+    font-size:.7rem;
+    padding:.4rem .7rem;
+  }
+
+  .hgrid{
+    grid-template-columns:1fr;
+    gap:2rem;
+  }
+
+  .hname{
+    font-size:2rem;
+  }
+
+  .sgrid{
+    grid-template-columns:1fr;
+  }
+
+  .pubitem{
+    grid-template-columns:1fr;
+  }
+
+  .pubnum{
+    display:none;
+  }
+
+  .eitem{
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+    align-items:flex-start;
+  }
+
+  .thead{
+    flex-direction:column;
+    gap:.3rem;
+  }
+
+  .pgrid{
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  }
 }
 @media(max-width:480px){
   .astats{grid-template-columns:1fr 1fr;}
@@ -892,10 +974,14 @@ footer{border-top:1px solid var(--line);padding:2rem 0;position:relative;z-index
         </div>
       </div>
       <p class="hbio">
-        MS student graduating Summer 2026, seeking <strong>HPC System Administration</strong> or <strong>Data Center Operations</strong> roles. 
-        Experienced in <strong>Linux server configuration</strong>, <strong>cluster setup</strong>, and <strong>iSCSI SAN storage</strong>, 
-        including deployment of a small-scale compute cluster <strong> (CEDAR SERVER)</strong> for EECS faculty at the University of Wyoming. 
-        Detail-oriented, quick learner, self-motivated and effective team collaboration.
+          MS student in <strong>Electrical Engineering</strong>, graduating Summer 2026, seeking 
+          <strong>HPC System Administration</strong> or <strong>Data Center Operations</strong> roles.<br><br>
+
+          Experienced in <strong>Linux server configuration, cluster setup, and iSCSI SAN storage</strong>, 
+          including deployment of a small-scale compute cluster 
+          (<strong>CEDAR SERVER</strong>) for EECS faculty at the University of Wyoming.<br><br>
+
+          Detail-oriented, quick learner and self-motivated.
       </p>
       <div class="hpills">
         <span class="pill pt">HPC · SLURM · Warewulf</span>
@@ -928,7 +1014,7 @@ footer{border-top:1px solid var(--line);padding:2rem 0;position:relative;z-index
       </div>
       <div class="hcard">
         <div class="hcard-lbl">Current Status</div>
-        <div class="hcard-val"><strong>MS EE</strong> · Expected Aug 2026<br>GPA 3.50 · Thesis in progress</div>
+        <div class="hcard-val"><strong>MS ELECTRICAL ENGINEERING</strong> · Expected Aug 2026<br>GPA 3.50 · Thesis in progress</div>
       </div>
     </div>
   </div>
